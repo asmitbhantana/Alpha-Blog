@@ -5,10 +5,17 @@ class ArticlesController < ApplicationController
 	def create
 		#creating new article first and whitelisting it
 		@article = Article.new(article_params)
-		@article.save
-		redirect_to aticle_show(@article)
+		if @article.save
+			flash[:notice]="Article was sucessfully created"
+			redirect_to article_path(@article)
+		else
+			render 'new'
+		end	
 	end
-	
+	#showing article after sucess
+	def show
+		@article = Article.find(params[:id])
+	end
 	#article_params
 	
 	private
