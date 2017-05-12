@@ -35,8 +35,13 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#This is the bootstrap gem for our benifit 
+gem 'bootstrap-sass', '~> 3.3.6'
+
+
+
 group :development, :test do
-gem 'sqlite3'
+	gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
