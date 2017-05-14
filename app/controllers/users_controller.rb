@@ -7,12 +7,28 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
   	if @user.save
   		flash[:success]="Hey, #{@user.username.upcase}, Welcome to Alpha-Blog!"
+  		redirect_to articles_path
   	else
-  		flash[:danger]="Unable to Signup invalid inforamtion"
+  		
   		render 'new'	
   	end	
   	
-  	redirect_to articles_path
+  	
+  end
+  
+  def edit
+  	@user = User.find(params[:id])	
+  end
+  
+  def update
+  	@user = User.find(params[:id])
+  	if @user.update(user_params)
+  	  	flash[:success] = "Sucessfully Updated Your Account"
+  	  	redirect_to articles_path
+  	else
+  			
+  		render 'edit'
+  	end
   end
   
   private
