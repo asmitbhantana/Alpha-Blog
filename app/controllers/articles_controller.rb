@@ -7,7 +7,9 @@ class ArticlesController < ApplicationController
 	end
 	def create
 		#creating new article first and whitelisting it
+		
 		@article = Article.new(article_params)
+		
 		if @article.save
 			flash[:success]="Article was sucessfully created"
 			redirect_to article_path(@article)
