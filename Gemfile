@@ -10,6 +10,8 @@ end
 gem 'rails', '~> 5.0.2'
 # Use bcrypt for authinicate
 gem 'bcrypt', '~> 3.1.7'
+gem 'will_paginate', '~> 3.1.0'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
