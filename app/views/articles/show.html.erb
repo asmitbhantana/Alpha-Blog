@@ -1,14 +1,21 @@
 <h2 align ="center">Title : <%= @article.title %></h2>
+
 <div class="well col-xs-8 col-xs-offset-2">
 	<div class="grav-article-view">
 		<small>Created By:</small>
 		<%= link_to gravatar_for(@article.user,size:40), user_path(@article.user) %>
 	</div>
+	<div class="cat-article-view" align ="center">
+	    <% if @article.categories.any? %>
+	      <p> <%= render @article.categories %></p>
+	    <%end%>
+	  </div>
 	<h4 class="center description" ><strong>Description:</strong></h4>
 	<hr>
 	 <%= simple_format(@article.description) %>
 	
 	<div class="article-actions">
+	  
 		<%= link_to "View all articles", articles_path, class: "btn btn-xs btn-success" %>
 		 <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
 		         <%= link_to "Edit the article", edit_article_path(@article),class: "btn btn-xs btn-primary" %>	
