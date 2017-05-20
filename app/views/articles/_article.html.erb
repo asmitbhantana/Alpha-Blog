@@ -13,7 +13,9 @@
 			  
 			<div class="article-body ">
 				<%= truncate(article.description, length: 100) %>
-				
+				<div align="center">
+				  <%= image_tag article.image.url(:thumb) %>
+				</div>
 			</div>
 		<% if logged_in? && (current_user == article.user || current_user.admin? )%>
 			<div class="article-actions ">
