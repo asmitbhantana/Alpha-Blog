@@ -2,7 +2,7 @@
 
 <div class ='row'>
 	<div class='col-xs-12'>
-<%= form_for(@article, :html=>{class: "form-horizontal", role: "form"}) do |f| %>
+<%= form_for(@article, :html=>{class: "form-horizontal", role: "form", multipart: true }) do |f| %>
 	<div class ="form-group">
 		<div class="control-label col-sm-2">
          		<%= f.label :title %>
@@ -20,6 +20,16 @@
         		<%= f.text_area :description, rows: 5,class: "form-control", placeholder: "Body of Article"%>
 		</div>
 	</div>
+	
+	<div class ="form-group">
+		<div class="control-label col-sm-2">
+	        	<%= f.label :Image %>
+		</div>
+		<div class="col-sm-2">	
+        		<%= f.file_field :image,class: "form-control", placeholder: "Image"%>
+		</div>
+	</div>
+	
 	<div class="form-group">
 	  <div  class="row">
 		  <div class="col-sm-offset-2 col-sm-8">
